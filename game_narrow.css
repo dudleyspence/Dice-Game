@@ -1,0 +1,501 @@
+/* Dudley Spence */
+/* 201180492 */
+
+#diceGrid {
+  display: grid;
+  grid-template-rows: auto ;
+  grid-template-columns: auto auto auto auto auto auto;
+  grid-template-areas: "   diceimg1   diceimg2    diceimg3   diceimg4   diceimg5   diceimg6   "
+}
+
+#dice0 {
+  grid-area: diceimg1;
+}
+#dice1 {
+  grid-area: diceimg2;
+}
+#dice2 {
+  grid-area: diceimg3;
+}
+#dice3 {
+  grid-area: diceimg4;
+}
+#dice4 {
+  grid-area: diceimg5;
+}
+#dice5 {
+  grid-area: diceimg6;
+}
+
+
+#scoreTable {
+  display: none;
+}
+
+#finalScoreTable {
+  margin: auto 20px auto 20px;
+  display: none;
+  grid-area: dicepics;
+  background-color: rgb(61, 138, 223);
+  font-size: 15px;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+#finalScoreTable th {
+  min-width: 75px;
+  padding: 15px;
+  border: 1px solid black;
+}
+
+#finalScoreTable td {
+ padding: 15px;
+  border: 1px solid black;
+}
+
+
+
+
+
+body {
+  font-family: 'Bitter', serif;
+  background-image: url(game_files/wood.jpeg);
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: auto;
+  grid-template-areas: "   main           "
+                       "   instructions   "
+
+
+}
+
+article {
+  grid-area: main;
+  margin: 20px;
+  background-image: url(game_files/casino.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* one column due to width of webpage */
+article {
+  display: grid;
+  grid-template-rows: 100px 75px 300px 235px auto auto;
+  grid-template-columns: auto;
+  grid-template-areas: "   diceimg    "
+                       "   Title      "
+                       "   middle     "
+                       "   scores     "
+                       "   Exit       "
+                       "   open       "
+}
+
+#diceimgs {
+  grid-area: diceimg;
+}
+
+#title h1{
+  grid-area: Title;
+  text-align: center;
+  font-size: 40px;
+  margin: 5px;
+}
+#title h3{
+  grid-area: Title;
+  text-align: center;
+  font-size: 20px;
+  margin: 5px;
+  color: white;
+  margin: 10px auto 0px auto;
+}
+
+
+#middle {
+  grid-area: middle;
+}
+
+#scores {
+  grid-area: scores;
+}
+
+#GameEnd {
+  grid-area: Exit;
+}
+
+#diceimg1 {
+  width: 10%;
+  height: auto;
+  margin: 0px;
+}
+
+#diceimg2 {
+  width: 10%;
+  height: auto;
+  margin: 0px;
+}
+
+#diceimg3 {
+  width: 10%;
+  height: auto;
+  margin: 0px;
+}
+#diceimg4 {
+  width: 10%;
+  height: auto;
+  margin: 0px;
+}
+#diceimg5 {
+  width: 10%;
+  height: auto;
+  margin: 0px;
+}
+
+#diceimg6 {
+  width: 10%;
+  height: auto;
+  margin: 0px;
+}
+
+#setupForm {
+  grid-area: dicepics;
+  margin: 50px;
+  height: 200px;
+  text-align: center;
+  font-size: 20px;
+}
+
+
+
+
+#GamePlayForm {
+  grid-area: rollButton;
+  text-align: center;
+  width: 250px;
+  height: 75px;
+  font-size: 30px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+#rollButton{
+  text-align: center;
+  font-size: 30px;
+  width: 250px;
+  height: 75px;
+  margin: auto;
+}
+
+#middle {
+  text-align: center;
+  margin: auto;
+}
+
+#diceTable {
+  display: none;
+  grid-area: dicepics;
+  height: 50px;
+  margin: 20px 20px 40px 20px;
+}
+
+#replayForm {
+  grid-area: rollButton;
+  text-align: center;
+  font-size: 30px;
+  width: 150px;
+  height: 75px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+
+
+
+#gameContinueForm {
+  grid-area: rollButton;
+  margin: auto;
+  text-align: center;
+  margin-top: 30px;
+}
+
+#GameEnd {
+  width: 250px;
+  height: 75px;
+  margin: auto;
+}
+
+
+
+#middle {
+  justify-content: center;
+  align-content: center;
+  display: grid;
+  grid-template-rows: 60% 40%;
+  grid-template-columns: auto;
+  grid-template-areas: "   dicepics   "
+                       "   rollButton "
+}
+
+#middle {
+  margin: auto;
+}
+
+
+#scoreTable {
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 20px;
+  text-align: center;
+  background-color: rgb(61, 138, 223);
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 240px;
+}
+
+#scoreTable td {
+  padding: 6px;
+  width:80px;
+  border: 1px solid black;
+}
+
+#scoreTable th {
+  padding: 6px;
+  width: 80px;
+  border: 1px solid black;
+}
+
+
+#allDice {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+
+.diceClass {
+  width: 70%;
+  height: auto;
+  margin: 10px;
+  max-width: 110px;
+  max-height: 110px;
+}
+
+
+
+#previousScores {
+  display: none;
+  margin: auto;
+  font-size: 20px;
+  text-align: center;
+  background-color: rgb(61, 138, 223);
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 240px;
+}
+
+#previousScores td {
+  padding: 6px;
+  width:80px;
+  border: 1px solid black;
+}
+
+#previousScores th {
+  padding: 6px;
+  width: 80px;
+  border: 1px solid black;
+}
+
+
+
+#previousScores caption{
+  background-color: rgb(61, 138, 223);
+  border: 1px solid black;
+  border-bottom: 0px;
+  border-collapse: collapse;
+}
+
+#instructions {
+  grid-area: instructions;
+  display: none;
+  background-image: url(game_files/casino.jpg);
+  background-size: cover;
+  color: white;
+  margin:20px;
+}
+
+#instructions p {margin: 10px}
+#instructions ul {margin: 10px}
+#instructionsClose {margin: 15px}
+
+#instructionsClose{
+  border: 1px solid black;
+  display: none;
+}
+
+#instructionsOpen {
+  border: 1px solid black;
+  grid-area: open;
+  text-align: center;
+  font-size: 10px;
+  width: 100px;
+  height: 20px;
+  margin: 15px;
+}
+
+#creditContent {
+  grid-area: instructions;
+  display: none;
+  background-image: url(game_files/casino.jpg);
+  background-size: cover;
+  color: white;
+  margin:20px;
+  padding: 10px;
+}
+
+#creditOpenButton{
+  border: 1px solid black;
+  grid-area: open;
+  text-align: center;
+  font-size: 10px;
+  width: 100px;
+  height: 20px;
+  margin: 15px;
+}
+
+#rolling_pic {
+  grid-area: dicepics;
+  display: none;
+}
+
+
+#rolling_img {
+  width: 50%;
+}
+
+#but1{
+  width: 150px;
+  height: 75px;
+  font-size: 30px;
+  background: white;
+  color: black;
+  border: 4px solid black;
+  border-radius: 4px;
+}
+
+
+#but1:hover{
+  background: rgb(226,81,65);
+  border: 4px solid white;
+  color: white;
+  border-radius: 4px;
+}
+
+
+#rollButton{
+  display: none;
+  text-align: center;
+  font-size: 30px;
+  width: 250px;
+  height: 75px;
+  margin: auto;
+  background: white;
+  color: black;
+  border: 4px solid black;
+  border-radius: 4px;
+}
+
+#rollButton:hover {
+  background: rgb(226,81,65);
+  border: 4px solid white;
+  color: white;
+  border-radius: 4px;
+}
+
+#continueButton {
+  display: none;
+  text-align: center;
+  font-size: 30px;
+  width: 250px;
+  height: 75px;
+  margin: auto;
+  background: white;
+  color: black;
+  border: 4px solid black;
+  border-radius: 4px;
+}
+
+#continueButton:hover {
+  background: rgb(226,81,65);
+  border: 4px solid white;
+  color: white;
+  border-radius: 4px;
+}
+
+
+#exitButton {
+  display: none;
+  text-align: center;
+  font-size: 20px;
+  width: 250px;
+  height: 50px;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background: white;
+  color: black;
+  border: 4px solid black;
+  border-radius: 4px;
+}
+
+#exitButton:hover {
+  background: rgb(226,81,65);
+  border: 4px solid white;
+  color: white;
+  border-radius: 4px;
+}
+
+#NDice {
+  margin: 15px;
+  width: 150px;
+  height: 30px;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+#creditClose {
+  border: 1px solid black;
+}
+
+#playAgain {
+  display: none;
+  text-align: center;
+  font-size: 20px;
+  width: 150px;
+  height: 75px;
+  margin: auto;
+  background: white;
+  color: black;
+  border: 4px solid black;
+  border-radius: 4px;
+}
+
+#playAgain:hover {
+  background: rgb(226,81,65);
+  border: 4px solid white;
+  color: white;
+  border-radius: 4px;
+}
+
+h5 {
+  margin: 0px;
+  text-align: center;
+  font-size: 20px;
+}
+
+a {
+  color: pink;
+}

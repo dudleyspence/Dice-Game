@@ -1,0 +1,177 @@
+<!-- Dudley Spence -->
+<!-- 201180492 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Dudley Spence">
+  <meta name="copyright" content="Universty of Liverpool">
+  <meta name="date" content="17/11/2020">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <!-- .ico image is used for the icon in the tab -->
+  <link rel="tab dice icon" type="image/x-icon" href="game_files/tab-dice.ico" />
+  <!-- 4 stylesheets are used to increase how responsive the webpage is -->
+  <link rel="stylesheet" href="game.css" media="screen and (min-width:751px)">
+  <link rel="stylesheet" type="text/css" media="screen and (max-width:750px)" href="game_narrow.css">
+  <link rel="stylesheet" type="text/css" media="screen and (max-width:450px)" href="game_mobile.css">
+  <link rel="stylesheet" type="text/css" media="screen and (max-width:330px)" href="game_thin_mobile.css">
+  <title>Dice Game</title>
+  <script src="game.js" defer></script>
+</head>
+
+<body>
+  <article>
+    <!-- 6 identical dice images at the top of the webpage -->
+    <section id="diceimgs">
+      <div id="allDice">
+        <img src="game_files/dice.jpeg" id="diceimg1" alt="dice image">
+        <img src="game_files/dice.jpeg" id="diceimg2" alt="dice image">
+        <img src="game_files/dice.jpeg" id="diceimg3" alt="dice image">
+        <img src="game_files/dice.jpeg" id="diceimg4" alt="dice image">
+        <img src="game_files/dice.jpeg" id="diceimg5" alt="dice image">
+        <img src="game_files/dice.jpeg" id="diceimg6" alt="dice image">
+      </div>
+    </section>
+    <div id="title">
+      <h1>Dice Game</h1>
+      <h3 id="header"> </h3>
+    </div>
+    <section id="middle">
+      <div id="setupForm">
+        <h5 id="diceQuestion">How many dice would you like to play with?</h5>
+        <!-- a text input field for No of dice selection -->
+        <!-- if enter key is pressed while cursor in the text field, setupValidate() is run -->
+        <br>
+        <input autocomplete="off" type="text" placeholder="Enter Here" id="NDice">
+        <br>
+        <!-- a button that when pressed will run the setupValidate() function -->
+        <input id="but1" class="submit_but" type="button" value="Submit">
+        <div id=setupError></div>
+      </div>
+      <div id="GamePlayForm">
+        <!-- a button that when pressed runs the displayDice() function -->
+        <input id="rollButton" type="button" name="roller" value="Roll the dice!" onclick="displayDice()">
+      </div>
+      <!-- A flex table containing N images of the rolled dice where N is the no of dice in play -->
+      <div id="diceTable">
+        <div id="diceGrid">
+          <div class="diceTop" id="dice0"></div>
+          <div class="diceTop" id="dice1"></div>
+          <div class="diceTop" id="dice2"></div>
+          <div class="diceTop" id="dice3"></div>
+          <div class="diceTop" id="dice4"></div>
+          <div class="diceTop" id="dice5"></div>
+        </div>
+      </div>
+      <!-- an image of a hand tossing dice, gives the feeling of actually rolling the dice -->
+      <div id="rolling_pic">
+        <img id="rolling_img" src="game_files/rolling.jpeg" alt="hand rolling dice">
+      </div>
+      <!-- a button that when pressed runs replay() to start the game again -->
+      <form id="replayForm">
+        <input id="playAgain" type="button" name="playAgain" value="Play Again" onclick="replay()">
+      </form>
+      <!-- a table that displays the final data from the game -->
+      <table id="finalScoreTable">
+        <tbody>
+          <tr>
+            <th>Number of Rounds</th>
+            <th>Average points per round</th>
+            <th>Final Score</th>
+          </tr>
+          <tr>
+            <td id="finalRounds"></td>
+            <td id="finalAverage"></td>
+            <td id="finalScore"></td>
+          </tr>
+        </tbody>
+      </table>
+      <form id="gameContinueForm">
+        <!-- a button that checks if the play wishes to play another round -->
+        <input id="continueButton" type="button" name="Continue" value="Next Round" onclick="continueGame()">
+      </form>
+    </section>
+    <section id="scores">
+      <!-- a table containing the round by round scores and total -->
+      <table id="scoreTable">
+        <tbody>
+          <tr>
+            <th id="scoreLeft">Round</th>
+            <th id="scoreMiddle">Points</th>
+            <th id="scoreRight">Total</th>
+          </tr>
+          <tr>
+            <td id="roundNo">0</td>
+            <td id="rPoints">0</td>
+            <td id="tPoints">0</td>
+          </tr>
+        </tbody>
+      </table>
+      <table id="previousScores">
+        <caption>Previous 5 Rounds</caption>
+        <!-- a table containing the scores from the previous 5 rounds -->
+        <tbody>
+          <tr>
+            <th id="1round">-</th>
+            <th id="2round">-</th>
+            <th id="3round">-</th>
+            <th id="4round">-</th>
+            <th id="5round">-</th>
+          </tr>
+          <tr>
+            <td id="1roundScore">0</td>
+            <td id="2roundScore">0</td>
+            <td id="3roundScore">0</td>
+            <td id="4roundScore">0</td>
+            <td id="5roundScore">0</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section id="GameEnd">
+      <form id="GameEndForm">
+        <!-- a button that when pressed will end the game and display the final scoreboard-->
+        <input id="exitButton" type="button" name="Exit" value="Exit Game" onclick="endGame()">
+      </form>
+    </section>
+    <!-- a button to open the instructions -->
+    <!-- a button to open the credits -->
+    <div id="openButton">
+      <input type="button" id="instructionsOpen" value="Instructions" onclick="instructionsOpen()">
+      <input type="button" id="creditOpenButton" value="Credits" onclick="creditOpen()">
+    </div>
+  </article>
+  <div id="instructions">
+    <p>Welcome to the dice game! First choose how may dice you want to play with. You can play with 3-6 dice.
+      Once you have chosen how many dice you wish to play with press the roll button to play your first round and roll the dice.
+      The scoreboard will show you how many rounds you have had, how many points you have won that round
+      and the total number of points you have earned. Below the scoreboard is a table of scores from
+      the previous 5 rounds.
+    </p>
+    <ul>
+      <li>All the same: This will earn you 60 points plus the sum of the dice.</li>
+      <li>All but one the same: This will earn you 40 points plus the sum of the dice.</li>
+      <li>A straight: e.g. (2,3,4,5) This will earn you 20 points plus the sum of the dice.</li>
+      <li>All different: If all the dice are different and not a staight you will earn the sum of the dice in points.</li>
+      <li>Any other outcome: 0 points will be awarded</li>
+    </ul>
+    <!-- a button to close the instructions -->
+    <input id="instructionsClose" type="button" value="Close Instructions" onclick="instructionsClose()">
+  </div>
+  <div id="creditContent">
+    All attributions are inline with the conditions provided by the creator.
+    <ul>
+      <li>Dice icons at top of page are made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> </li>
+      <li>Icons used for the in-game dice are made by <a href="http://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+      <li>The green felt background image is from account <a href="https://www.dreamstime.com/green-felt-texture-poker-green-felt-texture-poker-casino-background-image140867741">140867741</a> © <a
+          href="https://www.dreamstime.com/leszekkobusinski_info">Leszekkobusinski</a> - <a href="https://www.dreamstime.com/">Dreamstime.com</a> </li>
+      <li>The wooden background image is from <a href="https://www.beliani.co.uk/tv-stand-dark-wood-with-white-paxton.html">www.beliani.com</a></li>
+      <li>The rolling of dice Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></li>
+      <li>All sound effects are from <a href="https://www.zapsplat.com/">www.zapsplat.com</a></li>
+    </ul>
+    <!-- a button to close the credits -->
+    <input type="button" id="creditClose" value="Close" onclick="creditClose()">
+  </div>
+</body>
+</html>
